@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Recommendations</title>
+    
+    <!-- IMDb Style CSS -->
+    <link rel="stylesheet" href="movrec.css">
+    
+    <!-- FontAwesome for Icons -->
+    <script src="https://kit.fontawesome.com/74894dafb2.js" crossorigin="anonymous"></script>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Didact+Gothic&family=Montserrat&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- IMDb Style Header -->
+    <nav class="navbar">
+        <div id="header">
+            <button id="home" class="fab-btn">
+                <a href="../index.html" style="text-decoration: none; color: black;">
+                    <i class="fas fa-chevron-left"></i> Home
+                </a>
+            </button>
+        </div>
+        <div class="logo">
+            <img src="../assets/IMDB.png" alt="IMDb Logo">
+        </div>
+        <h1> Movie Recommendations</h1>
+    </nav>
+
+    <!-- Search Box -->
+    <section class="search-container">
+        <input type="text" id="movieInput" placeholder="Enter a movie name..." />
+        <button onclick="getRecommendations()">Search</button>
+    </section>
+
+    <!-- Loading Indicator (Hidden by Default) -->
+    <div id="loading" style="display: none; text-align: center;">
+        <p>Fetching recommendations... <i class="fas fa-spinner fa-spin"></i></p>
+    </div>
+
+    <!-- Results Section -->
+    <section id="results">
+        <div id="recommendation-container"></div>
+    </section>
+
+    <!-- External JavaScript -->
+    <script src="movrec.js"></script>
+
+</body>
+</html>
+

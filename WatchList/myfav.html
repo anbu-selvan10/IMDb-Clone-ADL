@@ -5,16 +5,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>My Favorite List</title>
-    <!-- style css link for index page  -->
     <link rel="stylesheet" href="./myfav.css" />
-    <!-- this is common css  -->
     <link rel="stylesheet" href="../Styles/style.css" />
-    <!-- here we use font awsome script toolkit -->
     <script
       src="https://kit.fontawesome.com/74894dafb2.js"
       crossorigin="anonymous"
     ></script>
-    <!-- google font link for awsome text  -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -22,12 +18,10 @@
       rel="stylesheet"
     />
   </head>
-  <!-- body section begins here -->
   <body>
     <!-- this is the main container of website  -->
     <section class="main">
       <nav class="nav-menu">
-        <!-- nav 1st child  -->
         <div class="logo-menu" onclick="showMenu()">
           <div class="imdb-logo">
             <img src="../assets/IMDB.png" alt="imdb-logo" />
@@ -37,11 +31,8 @@
           </div>
         </div>
         <div class="my-fav"><h1>Favorites</h1></div>
-        <!-- nav 3rd child  -->
         <div class="fabs-login">
           <h1 class="hover imdbpro">IMDb<span id="diff-color">Pro</span> |</h1>
-          <!-- this small page pop will be shown when you hover IMDbPro option  -->
-          <!-- ----------- -->
           <div class="pop-up">
             <div class="popup-img">
               <img src="../assets/IMDB.png" alt="popup-img-" />
@@ -60,11 +51,8 @@
               <button class="popup-btn">Try IMDbPro Free</button>
             </div>
           </div>
-          <!-- --------------- -->
         </div>
       </nav>
-
-      <!-- side menu of imdb web  -->
 
       <div class="side-option" id="side">
         <i class="fa fa-times" onclick="hideMenu()"></i>
@@ -72,7 +60,6 @@
         <br />
         <ul class="side-list">
           <li>
-            <!-- here class containing fa-solid all are icons which i takes from font awsome website -->
             <div>
               <a
                 style="text-decoration: none; color: white"
@@ -117,26 +104,17 @@
         </ul>
       </div>
 
-      <!-- Favorites movie list related html comes here  -->
-      <!-- this is the header part  -->
       <section id="header">
-        <!-- this is the back button to go to the main page  -->
         <button id="home" class="fab-btn">
-          <a href="../index.html"><i class="fas fa-chevron-left"></i>Home</a>
+          <a href="../index.html" style="color: black;"><i class="fas fa-chevron-left"></i>Home</a>
         </button>
-        <!-- title of the website  -->
         <span>My Favourite List</span>
-        <!-- button to clear all the fav movies -->
         <div id="btns">
           <button id="clear-whole-list" class="fab-btn">Clear All</button>
         </div>
       </section>
-      <!-- all the movies will be displayed here when call API  -->
-      <div id="list-container">
-        <!-- dynamic html container and related element come across this list container  -->
-      </div>
+      <div id="list-container"></div>
     </section>
-    <!-- external script for this page  -->
     <script type="text/javascript" src="./myfav.js"></script>
   </body>
 </html>

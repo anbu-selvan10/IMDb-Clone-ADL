@@ -1,4 +1,3 @@
-// Open and hide side menu
 var sideOption = document.getElementById("side");
 function showMenu() {
   sideOption.style.left = "0";
@@ -7,16 +6,13 @@ function hideMenu() {
   sideOption.style.left = "-300px";
 }
 
-// API details
 const API_KEY = "api_key=fa3281c3198c2cbc12dd79f84b17bf07";
 const IMAGE_URL = "https://image.tmdb.org/t/p/w500";
 const BASE_URL = "https://api.themoviedb.org/3";
 
-// Get favorite movies from localStorage
 var storageData = localStorage.getItem("MovieArray");
 var favMovieArray = JSON.parse(storageData) || [];
 
-// Fetch and display each favorite movie
 favMovieArray.forEach(async (id) => {
   let link = `/movie/${id}?language=en-US&`;
   let url = BASE_URL + link + API_KEY;
@@ -36,18 +32,20 @@ function apiCall(url, id) {
 
 // Function to display favorite movies with review section
 function favMovieData(jsonResp, id) {
-    var eachListItem = document.createElement('div');
-    eachListItem.classList.add('list-item');
-    
-    // Get stored reviews
-    let storedReviews = JSON.parse(localStorage.getItem('reviews')) || {};
-    let movieReview = storedReviews[id] || "";
+  var eachListItem = document.createElement("div");
+  eachListItem.classList.add("list-item");
 
-    eachListItem.innerHTML = `
+  // Get stored reviews
+  let storedReviews = JSON.parse(localStorage.getItem("reviews")) || {};
+  let movieReview = storedReviews[id] || "";
+
+  eachListItem.innerHTML = `
         <div class="movie-details">
             <div class="thumbnail">
                 <a href="../MoviePage/moviePage.html?id=${id}">
-                    <img id="movieimg" src="${IMAGE_URL + jsonResp.poster_path}" alt="Thumbnail">
+                    <img id="movieimg" src="${
+                      IMAGE_URL + jsonResp.poster_path
+                    }" alt="Thumbnail">
                 </a>
             </div>
             <div id="details">
@@ -61,16 +59,21 @@ function favMovieData(jsonResp, id) {
 
             <!-- Review Section -->
             <div class="review-section">
-                <textarea id="review-${id}" class="review-input" placeholder="Add your review..." style="${movieReview ? 'display: none;' : 'display: block;'}">${movieReview}</textarea>
-                <button id="review-btn-${id}" class="review-btn" onclick="saveReview(${id})" style="${movieReview ? 'display: none;' : 'display: block;'}">Submit</button>
-                <p class="review-text" id="display-review-${id}">${movieReview ? "Your Review: " + movieReview : ""}</p>
+                <textarea id="review-${id}" class="review-input" placeholder="Add your review..." style="${
+    movieReview ? "display: none;" : "display: block;"
+  }">${movieReview}</textarea>
+                <button id="review-btn-${id}" class="review-btn" onclick="saveReview(${id})" style="${
+    movieReview ? "display: none;" : "display: block;"
+  }">Submit</button>
+                <p class="review-text" id="display-review-${id}">${
+    movieReview ? "Your Review: " + movieReview : ""
+  }</p>
             </div>
         </div>
     `;
 
-    document.getElementById('list-container').appendChild(eachListItem);
+  document.getElementById("list-container").appendChild(eachListItem);
 }
-
 
 // Function to save review to localStorage
 function saveReview(id) {
