@@ -101,3 +101,37 @@ prevBtn.addEventListener('click', () => {
     apiCall(tempURL);
     disablePBtn();
 });
+
+document.addEventListener("DOMContentLoaded", function () {
+    let authLink = document.getElementById("auth-link");
+    let storedUser = localStorage.getItem("username");
+
+    if (storedUser) {
+        authLink.innerHTML = `<span id="user-name">${storedUser}</span>`;
+        authLink.href = "#"; // Prevent navigation on username click
+
+        let logoutSpan = document.createElement("span");
+        logoutSpan.id = "logout";
+        logoutSpan.innerText = " | Logout";
+        logoutSpan.style.display = "none";
+        logoutSpan.style.cursor = "pointer";
+        logoutSpan.style.color = "red";
+
+        authLink.appendChild(logoutSpan);
+
+        // Show logout when hovering over username
+        authLink.addEventListener("mouseenter", function () {
+            logoutSpan.style.display = "inline";
+        });
+
+        authLink.addEventListener("mouseleave", function () {
+            logoutSpan.style.display = "none";
+        });
+
+        logoutSpan.addEventListener("click", function () {
+            localStorage.removeItem("username"); // Clear storage
+            location.reload(); // Refresh page to show "Sign In"
+        });
+    }
+});
+
