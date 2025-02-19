@@ -92,7 +92,7 @@ function getMovies(myJson) {
                     <b><i class="fas fa-clock"></i></b> ${myJson.runtime}
                 </div>
                 <div class="release-date">
-                    <b>Raleased</b>: ${myJson.release_date}
+                    <b>Released</b>: ${myJson.release_date}
                 </div>
             </div>
 
@@ -101,7 +101,7 @@ function getMovies(myJson) {
             </div>
 
             <div class="trailer-div" id="trailer-div-btn">
-                <span>Play Movie</span> <i class="fab fa-youtube"></i>
+                <span>Play Movie Trailer</span> <i class="fab fa-youtube"></i>
             </div>
               <span><iframe width="460" height="250" src=${youtubeURL} title="YouTube video player" frameborder="0" allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen ></iframe ></span >
           
